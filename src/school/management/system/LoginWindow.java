@@ -13,7 +13,7 @@ import javax.swing.JFrame;
 
 /**
  *
- * @author user
+ * @author Brian_Gicharu
  */
 public class LoginWindow extends javax.swing.JFrame {
 
@@ -21,6 +21,7 @@ public class LoginWindow extends javax.swing.JFrame {
     private final TimerTask task;
     public int y = 0, z = 0;
     public boolean isDecreasing, colorPlay=false;
+    
     public LoginWindow() {
         initComponents();
         
@@ -206,10 +207,7 @@ public class LoginWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_aboutUsLabelMouseClicked
 
     private void signUpLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signUpLabelMouseClicked
-        SignUpForm sign = new SignUpForm();
-        sign.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        sign.setLocation(500, 200);
-        sign.setVisible(true);
+        MainClass.signUpForm();
     }//GEN-LAST:event_signUpLabelMouseClicked
 
     private void logAsLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logAsLabelMouseClicked

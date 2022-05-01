@@ -5,6 +5,8 @@
  */
 package school.management.system;
 
+import java.util.Arrays;
+
 /**
  *
  * @author Brian_Gicharu
@@ -12,8 +14,14 @@ package school.management.system;
 public class User {
     
     String utype;
-    public User(String utype){
+    private String[] uPriviliege = {"N","N","N","N","N"}; 
+    
+    public User(String utype, String[] privilieges){
         this.utype = utype;
+        if(Arrays.toString(privilieges).isEmpty()){
+        }else{
+            this.uPriviliege = privilieges;
+        }
     }
     
     public User(){
@@ -35,5 +43,9 @@ public class User {
         }else{
             // User not recognized
         }
+    }
+    
+    public void showPriv_(){
+        System.out.println(Arrays.toString(uPriviliege));
     }
 }

@@ -7,6 +7,7 @@
 package school.management.system;
 
 import java.awt.Image;
+import java.awt.Window;
 import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -22,7 +23,9 @@ import javax.swing.JTextField;
  */
 public class SignUpForm extends JFrame {
     // Public vars
-    int sec = 5;
+    static int sec = 5;
+    private Timer timer;
+    private TimerTask task;
     /** Creates new form SignInForm */
     public SignUpForm() {
         initComponents();
@@ -47,10 +50,18 @@ public class SignUpForm extends JFrame {
         surNameLabel = new javax.swing.JLabel();
         surName = new javax.swing.JTextField();
         sUFSeparator = new javax.swing.JSeparator();
-        userEmail = new javax.swing.JLabel();
-        emailText = new javax.swing.JTextField();
+        userpwd1 = new javax.swing.JLabel();
         okBtn = new javax.swing.JButton();
         successLabel = new javax.swing.JLabel();
+        userPwd2 = new javax.swing.JLabel();
+        userEmailText = new javax.swing.JTextField();
+        userEmail = new javax.swing.JLabel();
+        userPwdField1 = new javax.swing.JPasswordField();
+        userPwdField2 = new javax.swing.JPasswordField();
+        genderLabel = new javax.swing.JLabel();
+        genderCmBox = new javax.swing.JComboBox<>();
+        ageLabel = new javax.swing.JLabel();
+        ageTextBox = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SIGN UP");
@@ -77,15 +88,9 @@ public class SignUpForm extends JFrame {
             }
         });
 
-        userEmail.setText("Email");
-        userEmail.setOpaque(true);
-        userEmail.setPreferredSize(new java.awt.Dimension(25, 15));
-
-        emailText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emailTextActionPerformed(evt);
-            }
-        });
+        userpwd1.setText("Enter Password");
+        userpwd1.setOpaque(true);
+        userpwd1.setPreferredSize(new java.awt.Dimension(25, 15));
 
         okBtn.setText("SUBMIT");
         okBtn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -94,70 +99,118 @@ public class SignUpForm extends JFrame {
             }
         });
 
+        successLabel.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 11)); // NOI18N
         successLabel.setFocusable(false);
+
+        userPwd2.setText("Confirm Password");
+        userPwd2.setOpaque(true);
+        userPwd2.setPreferredSize(new java.awt.Dimension(25, 15));
+
+        userEmailText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userEmailTextActionPerformed(evt);
+            }
+        });
+
+        userEmail.setText("Email");
+        userEmail.setOpaque(true);
+        userEmail.setPreferredSize(new java.awt.Dimension(25, 15));
+
+        genderLabel.setText("Gender");
+        genderLabel.setOpaque(true);
+
+        genderCmBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MALE", "FEMALE", "PREFER NOT TO SAY" }));
+
+        ageLabel.setText("Age");
+        ageLabel.setOpaque(true);
 
         javax.swing.GroupLayout boardPanelLayout = new javax.swing.GroupLayout(boardPanel);
         boardPanel.setLayout(boardPanelLayout);
         boardPanelLayout.setHorizontalGroup(
             boardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(sUFSeparator)
             .addGroup(boardPanelLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(boardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(boardPanelLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(boardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(userEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(surNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(secondNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(firstNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(usrLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(boardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(boardPanelLayout.createSequentialGroup()
-                                .addComponent(emailText)
-                                .addGap(2, 2, 2)
-                                .addComponent(okBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(boardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(usrTypeSelector, 0, 227, Short.MAX_VALUE)
-                                .addComponent(firstName)
-                                .addComponent(secondName)
-                                .addComponent(surName))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, boardPanelLayout.createSequentialGroup()
-                        .addContainerGap(222, Short.MAX_VALUE)
-                        .addComponent(successLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addGroup(boardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(genderLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(userpwd1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(surNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(secondNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
+                            .addComponent(firstNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(usrLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(userPwd2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(userEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(8, 8, 8)
+                        .addGroup(boardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(boardPanelLayout.createSequentialGroup()
+                                .addComponent(genderCmBox, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10)
+                                .addComponent(ageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(ageTextBox, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, boardPanelLayout.createSequentialGroup()
+                                .addComponent(userEmailText, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(okBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE))
+                            .addComponent(usrTypeSelector, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(firstName, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(secondName, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(surName, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(userPwdField2, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(userPwdField1, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addContainerGap())
+                    .addGroup(boardPanelLayout.createSequentialGroup()
+                        .addComponent(successLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
+            .addComponent(sUFSeparator)
         );
         boardPanelLayout.setVerticalGroup(
             boardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(boardPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(16, Short.MAX_VALUE)
                 .addGroup(boardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(usrTypeSelector, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(usrLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addGroup(boardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(genderLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(genderCmBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ageTextBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addGroup(boardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(firstName)
                     .addGroup(boardPanelLayout.createSequentialGroup()
                         .addGap(3, 3, 3)
                         .addComponent(firstNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addGroup(boardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(secondName)
                     .addComponent(secondNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addGroup(boardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(surNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(surName))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addGroup(boardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(emailText)
+                    .addComponent(userpwd1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(userPwdField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addGroup(boardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(userPwd2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(userPwdField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addGroup(boardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(userEmailText)
                     .addComponent(userEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(okBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(sUFSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(successLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
-                .addGap(45, 45, 45))
+                .addComponent(sUFSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(successLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -174,50 +227,56 @@ public class SignUpForm extends JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void emailTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_emailTextActionPerformed
-
     private void surNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_surNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_surNameActionPerformed
 
     private void okBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_okBtnMouseClicked
-        
-        JTextField[] fields =  {firstName, secondName, surName, emailText};
+        boolean imageSet;
+        sec = 6;
+        JTextField[] fields =  {firstName, secondName, surName, userEmailText};
         for(JTextField item:fields){
             item.setText("Success");            
         }
         successLabel.setIcon(new ImageIcon(Resources.success
                     .getImage().getScaledInstance(successLabel.getWidth(),
                     successLabel.getHeight(), Image.SCALE_SMOOTH)));
-        Executors.newSingleThreadScheduledExecutor().schedule(()->{
-            successLabel.setIcon(null);
-        },1000,TimeUnit.MILLISECONDS);
         
-        Timer timer = new Timer();
-        TimerTask task = new TimerTask(){
+        timer = new Timer();
+        task = new TimerTask(){
             @Override
-            public void run() {
-                if(sec<1)timer.cancel();
-                if(successLabel.getIcon()!=null){
-                    successLabel.removeAll();
-                }else{
-                    successLabel.setText("Exiting in: "+String.format("%02d",sec));
-                    sec--;
+            public void run() throws NullPointerException{
+                if(sec<6){
+                    successLabel.setIcon(null);
+                    successLabel.setText("SUCCESSFULY REGISTERED!");
+                    MainClass.sign.setTitle("SIGN UP : "+String.format("Exiting in : %02d (Sec)",sec));
                 }
+                sec--;
+                if(sec<0){
+                    evt.consume();
+                    timer.cancel();
+                    for(Window c:MainClass.login.getOwnedWindows()){
+                        c.dispose();
+                    }
+//                    MainClass.sign.dispose(); 
+                }               
             }
-            
         };
-        timer.schedule(task, new Date(),sec+1*1000);
-        if(sec==1)MainClass.destroy();
+        timer.schedule(task,new Date(), 1000);
     }//GEN-LAST:event_okBtnMouseClicked
 
+    private void userEmailTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userEmailTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userEmailTextActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel ageLabel;
+    private javax.swing.JTextField ageTextBox;
     private javax.swing.JPanel boardPanel;
-    private javax.swing.JTextField emailText;
     private javax.swing.JTextField firstName;
     private javax.swing.JLabel firstNameLabel;
+    private javax.swing.JComboBox<String> genderCmBox;
+    private javax.swing.JLabel genderLabel;
     private javax.swing.JButton okBtn;
     private javax.swing.JSeparator sUFSeparator;
     private javax.swing.JTextField secondName;
@@ -226,6 +285,11 @@ public class SignUpForm extends JFrame {
     private javax.swing.JTextField surName;
     private javax.swing.JLabel surNameLabel;
     private javax.swing.JLabel userEmail;
+    private javax.swing.JTextField userEmailText;
+    private javax.swing.JLabel userPwd2;
+    private javax.swing.JPasswordField userPwdField1;
+    private javax.swing.JPasswordField userPwdField2;
+    private javax.swing.JLabel userpwd1;
     private javax.swing.JLabel usrLabel;
     private javax.swing.JComboBox<String> usrTypeSelector;
     // End of variables declaration//GEN-END:variables
