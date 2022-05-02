@@ -39,67 +39,106 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
+              <Component id="sUFSeparator" max="32767" attributes="0"/>
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="genderLabel" max="32767" attributes="0"/>
-                              <Component id="userpwd1" max="32767" attributes="0"/>
-                              <Component id="surNameLabel" max="32767" attributes="0"/>
-                              <Component id="secondNameLabel" pref="86" max="32767" attributes="0"/>
-                              <Component id="firstNameLabel" alignment="1" max="32767" attributes="0"/>
-                              <Component id="usrLabel" alignment="1" max="32767" attributes="0"/>
-                              <Component id="userPwd2" max="32767" attributes="0"/>
-                              <Component id="userEmail" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="successLabel" min="-2" pref="151" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="signUpQuitBtn" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="userPwd1" max="32767" attributes="0"/>
+                                  <Component id="surNameLabel" max="32767" attributes="0"/>
+                                  <Component id="secondNameLabel" pref="86" max="32767" attributes="0"/>
+                                  <Component id="firstNameLabel" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="userPwd2" max="32767" attributes="0"/>
+                                  <Component id="userEmail" max="32767" attributes="0"/>
+                                  <Component id="contactLabel" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                              <Component id="photoImageView" min="-2" pref="106" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
+                          <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
-                                  <Component id="genderCmBox" min="-2" pref="147" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                                  <Component id="ageLabel" min="-2" pref="28" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="ageTextBox" min="-2" pref="40" max="-2" attributes="0"/>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="ageLabel" alignment="1" min="-2" pref="76" max="-2" attributes="0"/>
+                                      <Component id="genderLabel" alignment="1" min="-2" pref="76" max="-2" attributes="0"/>
+                                      <Component id="usrLabel" alignment="1" min="-2" pref="76" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="usrTypeSelector" max="32767" attributes="0"/>
+                                      <Component id="genderCmBox" max="32767" attributes="0"/>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="ageTextBox" min="-2" pref="32" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="activityLabel" min="-2" pref="42" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="activitySelectorJCmBox" min="-2" pref="136" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="userEmailText" min="-2" pref="257" max="-2" attributes="0"/>
+                                  <Component id="userEmailText" min="-2" pref="247" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="okBtn" pref="123" max="32767" attributes="0"/>
+                                  <Component id="okBtn" pref="78" max="32767" attributes="0"/>
                               </Group>
-                              <Component id="usrTypeSelector" alignment="0" max="32767" attributes="0"/>
+                              <Component id="surName" alignment="1" max="32767" attributes="0"/>
+                              <Component id="userPwdField1" alignment="1" max="32767" attributes="0"/>
+                              <Component id="secondName" alignment="1" max="32767" attributes="0"/>
                               <Component id="firstName" alignment="0" max="32767" attributes="0"/>
-                              <Component id="secondName" alignment="0" max="32767" attributes="0"/>
-                              <Component id="surName" alignment="0" max="32767" attributes="0"/>
-                              <Component id="userPwdField2" alignment="0" max="32767" attributes="0"/>
-                              <Component id="userPwdField1" alignment="0" max="32767" attributes="0"/>
+                              <Component id="userPwdField2" alignment="1" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="pwdMatchHint" min="-2" pref="155" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
+                              <Component id="contactField" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="successLabel" min="-2" pref="151" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      </Group>
                   </Group>
               </Group>
-              <Component id="sUFSeparator" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace pref="16" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="usrTypeSelector" alignment="3" max="32767" attributes="0"/>
-                      <Component id="usrLabel" alignment="3" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="usrTypeSelector" alignment="3" max="32767" attributes="0"/>
+                              <Component id="usrLabel" alignment="3" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="genderLabel" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                              <Component id="genderCmBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="ageLabel" alignment="0" min="-2" pref="19" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="activityLabel" alignment="3" min="-2" pref="19" max="-2" attributes="0"/>
+                                  <Component id="activitySelectorJCmBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="ageTextBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <Component id="photoImageView" min="-2" pref="84" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="10" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="genderLabel" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                      <Component id="genderCmBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="ageLabel" alignment="3" min="-2" pref="19" max="-2" attributes="0"/>
-                      <Component id="ageTextBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="11" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="contactField" alignment="0" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
+                          <Component id="contactLabel" min="-2" pref="17" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace pref="10" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -121,7 +160,7 @@
                   </Group>
                   <EmptySpace pref="10" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="userpwd1" alignment="3" max="32767" attributes="0"/>
+                      <Component id="userPwd1" alignment="3" max="32767" attributes="0"/>
                       <Component id="userPwdField1" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="9" max="32767" attributes="0"/>
@@ -129,7 +168,9 @@
                       <Component id="userPwd2" alignment="3" max="32767" attributes="0"/>
                       <Component id="userPwdField2" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="12" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                  <Component id="pwdMatchHint" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="userEmailText" alignment="3" max="32767" attributes="0"/>
                       <Component id="userEmail" alignment="3" max="32767" attributes="0"/>
@@ -138,7 +179,10 @@
                   <EmptySpace type="unrelated" max="32767" attributes="0"/>
                   <Component id="sUFSeparator" min="-2" pref="2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="successLabel" min="-2" pref="74" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="successLabel" min="-2" pref="74" max="-2" attributes="0"/>
+                      <Component id="signUpQuitBtn" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -179,6 +223,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="firstName">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="firstNameActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="secondNameLabel">
           <Properties>
@@ -187,6 +234,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="secondName">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="secondNameActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="surNameLabel">
           <Properties>
@@ -201,7 +251,7 @@
         </Component>
         <Component class="javax.swing.JSeparator" name="sUFSeparator">
         </Component>
-        <Component class="javax.swing.JLabel" name="userpwd1">
+        <Component class="javax.swing.JLabel" name="userPwd1">
           <Properties>
             <Property name="text" type="java.lang.String" value="Enter Password"/>
             <Property name="opaque" type="boolean" value="true"/>
@@ -221,7 +271,7 @@
         <Component class="javax.swing.JLabel" name="successLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Yu Gothic UI Semilight" size="11" style="0"/>
+              <Font name="Calibri Light" size="11" style="1"/>
             </Property>
             <Property name="focusable" type="boolean" value="false"/>
           </Properties>
@@ -250,8 +300,14 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JPasswordField" name="userPwdField1">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="userPwdField1ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JPasswordField" name="userPwdField2">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="userPwdField2ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="genderLabel">
           <Properties>
@@ -280,6 +336,78 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="ageTextBox">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ageTextBoxActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="activityLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Activity"/>
+            <Property name="opaque" type="boolean" value="true"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="activitySelectorJCmBox">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="4">
+                <StringItem index="0" value="Sports"/>
+                <StringItem index="1" value="Science"/>
+                <StringItem index="2" value="Arts"/>
+                <StringItem index="3" value="Others"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JButton" name="signUpQuitBtn">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Quit"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="signUpQuitBtnActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="photoImageView">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="click to add photo"/>
+            <Property name="opaque" type="boolean" value="true"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="photoImageViewMouseClicked"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JLabel" name="pwdMatchHint">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="33" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value=" "/>
+            <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[2, 15]"/>
+            </Property>
+            <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[2, 15]"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="contactLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Contact"/>
+            <Property name="opaque" type="boolean" value="true"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="contactField">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="contactFieldActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

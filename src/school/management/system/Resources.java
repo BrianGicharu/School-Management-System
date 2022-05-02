@@ -10,8 +10,10 @@ import javax.swing.ImageIcon;
 
 /**
  *
- * @author user
+ * @author Brian_Gicharu
  */
 abstract class Resources {
-    public static ImageIcon success = new ImageIcon("src/school/management/icons/success.png");
+    // new ImageIcon(Test.this.getClass().getResource("starzoom-thumb.gif"));
+    public static ImageIcon success = new ImageIcon("src/school/management/icons/success.gif");
+    public static ImageIcon userIconDefault = new ImageIcon("src/school/management/icons/usr.png");
 }

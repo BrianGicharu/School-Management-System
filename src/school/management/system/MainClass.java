@@ -46,17 +46,12 @@ public class MainClass extends JFrame{
             
         }
     }
-    
+     
     // Calls the Registration form
     public static void signUpForm(){
         sign = new SignUpForm();
         sign.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         sign.setLocation(login.getX(),login.getY());
         sign.setVisible(true);
-    }
-    
-    public static JFrame killFrame(){
-        System.out.println("I was summoned to destroy a frame");
-        return sign;
     }
 }
