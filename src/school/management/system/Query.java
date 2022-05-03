@@ -95,9 +95,9 @@ public class Query {
         try{
             ps = conn.prepareStatement("USE SCHOOL;INSERT INTO "+table+" VALUES("+qMarks+");");            
             for(int i=1;i<=values.length;i++){
-                if(isNumeric(values[i])){
+                if(Validate.isNumeric(values[i])){
                     ps.setInt(i, Integer.parseInt(values[i]));
-                }else if(isDouble(values[i])){
+                }else if(Validate.isDouble(values[i])){
                     ps.setDouble(i, Double.parseDouble(values[i]));
                 }else{
                     ps.setString(i, values[i]);
@@ -105,15 +105,5 @@ public class Query {
             }
             ps.execute();
         }catch(SQLException e){System.err.println(e);}
-    }
-    
-    // Checks if a String Object can be converted to an integer value.
-    private static boolean isNumeric(String string){
-        return string.matches("\\d+");
-    }
-    
-    // Checks if a String Object can be converted to a double value.
-    private static boolean isDouble(String string){
-        return string.matches("\\d+.\\d+");
-    }
+    }    
 }

@@ -20,7 +20,7 @@ import javax.swing.JFrame;
  */
 public class SignUpForm extends JFrame {
     // Public vars
-    static int sec = 10;
+    static int sec = 15;
     private Timer timer;
     private TimerTask task;
     /** Creates new form SignInForm */
@@ -243,10 +243,8 @@ public class SignUpForm extends JFrame {
                             .addComponent(secondName, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(firstName)
                             .addComponent(userPwdField2, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(boardPanelLayout.createSequentialGroup()
-                                .addComponent(pwdMatchHint, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(contactField))
+                            .addComponent(contactField)
+                            .addComponent(pwdMatchHint, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap())))
         );
         boardPanelLayout.setVerticalGroup(
@@ -345,7 +343,16 @@ public class SignUpForm extends JFrame {
                     || Arrays.toString(userPwdField1.getPassword()).isEmpty()
                     || Arrays.toString(userPwdField2.getPassword()).isEmpty()){
                 pwdMatchHint.setText("The required fields cannot be empty!");
-            }else{submitSignUpForm();} 
+            }else{
+                if(!Validate.isNumeric(ageTextBox.getText()) || !userEmailText.getText().matches("\\w+@\\w+.\\w+")){
+                    if(!userEmailText.getText().matches("\\w+@\\w+.\\w+"))
+                        pwdMatchHint.setText("Email entered is invalid");
+                    else pwdMatchHint.setText("Age should be of integer type");
+                }else{
+                    submitSignUpForm();
+                }
+                
+            } 
         }        
     }//GEN-LAST:event_okBtnMouseClicked
 
@@ -362,7 +369,15 @@ public class SignUpForm extends JFrame {
                     || Arrays.toString(userPwdField1.getPassword()).isEmpty()
                     || Arrays.toString(userPwdField2.getPassword()).isEmpty()){
                 pwdMatchHint.setText("The required fields cannot be empty!");
-            }else{submitSignUpForm();}            
+            }else{
+            if(!Validate.isNumeric(ageTextBox.getText()) || !userEmailText.getText().matches("\\w+@\\w+.\\w+")){
+                    if(!userEmailText.getText().matches("\\w+@\\w+.\\w+"))
+                        pwdMatchHint.setText("Email entered is invalid");
+                    else pwdMatchHint.setText("Age should be of integer type");
+                }else{
+                    submitSignUpForm();
+                }
+            }            
         }
     }//GEN-LAST:event_userEmailTextActionPerformed
 
@@ -445,7 +460,7 @@ public class SignUpForm extends JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void submitSignUpForm() {
-        sec = 10;
+        sec = 15;
         successLabel.setIcon(new ImageIcon(Resources.success
                     .getImage().getScaledInstance(successLabel.getWidth(),
                     successLabel.getHeight(), Image.SCALE_SMOOTH)));
@@ -454,7 +469,7 @@ public class SignUpForm extends JFrame {
         task = new TimerTask(){
             @Override
             public void run(){
-                if(sec!=0 && sec<10){
+                if(sec!=0 && sec<15){
                     successLabel.setIcon(null);
                     if(sec%2!=0)successLabel.setText("SUCCESSFULY REGISTERED!");
                     else successLabel.setText("");

@@ -13,7 +13,7 @@ import javax.swing.ImageIcon;
  * @author Brian_Gicharu
  */
 abstract class Resources {
-    // new ImageIcon(Test.this.getClass().getResource("starzoom-thumb.gif"));
+    
     public static ImageIcon success = new ImageIcon("src/school/management/icons/success.gif");
     public static ImageIcon userIconDefault = new ImageIcon("src/school/management/icons/usr.png");
 }
