@@ -116,6 +116,7 @@ public class SignUpForm extends JFrame {
         });
 
         successLabel.setFont(new java.awt.Font("Calibri Light", 1, 11)); // NOI18N
+        successLabel.setForeground(new java.awt.Color(255, 255, 204));
         successLabel.setFocusable(false);
 
         userPwd2.setText("Confirm Password");
@@ -473,7 +474,6 @@ public class SignUpForm extends JFrame {
                     successLabel.setIcon(null);
                     if(sec%2!=0)successLabel.setText("SUCCESSFULY REGISTERED!");
                     else successLabel.setText("");
-                    successLabel.setOpaque(true);
                     userEmailText.setText("Waiting for Adminstrative authentication");
                     userEmailText.setEditable(false);
                     MainClass.sign.setTitle(String.format("SIGN UP : Exiting in : %02d (Sec)",sec));

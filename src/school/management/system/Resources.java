@@ -14,6 +14,6 @@ import javax.swing.ImageIcon;
  */
 abstract class Resources {
     
-    public static ImageIcon success = new ImageIcon("src/school/management/icons/success.gif");
+    public static ImageIcon success = new ImageIcon("src/school/management/icons/success.png");
     public static ImageIcon userIconDefault = new ImageIcon("src/school/management/icons/usr.png");
 }

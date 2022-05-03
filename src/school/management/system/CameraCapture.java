@@ -59,6 +59,7 @@ public class CameraCapture extends JFrame {
         cameraScreen = new javax.swing.JLabel();
         resetBtn = new javax.swing.JButton();
         imgNameLabel = new javax.swing.JLabel();
+        saveToFile = new javax.swing.JRadioButton();
 
         jLabel1.setText("jLabel1");
 
@@ -94,6 +95,9 @@ public class CameraCapture extends JFrame {
             }
         });
 
+        saveToFile.setText("Save to file.");
+        saveToFile.setOpaque(false);
+
         javax.swing.GroupLayout boardJPanelLayout = new javax.swing.GroupLayout(boardJPanel);
         boardJPanel.setLayout(boardJPanelLayout);
         boardJPanelLayout.setHorizontalGroup(
@@ -106,7 +110,11 @@ public class CameraCapture extends JFrame {
                         .addGap(28, 28, 28)
                         .addComponent(resetBtn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(imgNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
+                        .addGroup(boardJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(imgNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
+                            .addGroup(boardJPanelLayout.createSequentialGroup()
+                                .addComponent(saveToFile)
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addGap(18, 18, 18)
                         .addComponent(saveImage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(cameraScreen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -119,11 +127,17 @@ public class CameraCapture extends JFrame {
                 .addComponent(cameraScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 356, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(boardJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(imgNameLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(saveImage, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(resetBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(captureImage, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                    .addGroup(boardJPanelLayout.createSequentialGroup()
+                        .addGroup(boardJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(saveImage, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(resetBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(captureImage, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, boardJPanelLayout.createSequentialGroup()
+                        .addComponent(imgNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(saveToFile)
+                        .addGap(14, 14, 14))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -149,15 +163,18 @@ public class CameraCapture extends JFrame {
                 name = new SimpleDateFormat("yyyy-mm-dd-hh-mm-ss")
                         .format(new Date());
                 // Writing image to file
-                Imgcodecs.imwrite("src/school/management/captured_photos/"+"PlancksCodeLab_capture_"+
+                if(saveToFile.isSelected()){
+                    Imgcodecs.imwrite("src/school/management/captured_photos/"+"PlancksCodeLab_capture_"+
                         (new SimpleDateFormat("yyyy-mm-dd-hh-mm-ss")
                                 .format(new Date()))+".jpg",image);
+                }
                 
                 MainClass.sign.photoImageView.setIcon(new ImageIcon(icon.getImage().getScaledInstance(
                         MainClass.sign.photoImageView.getWidth(),
                         MainClass.sign.photoImageView.getHeight(), Image.SCALE_SMOOTH)));
                 dispose();
                 capture.release();
+                recording = true;
             }            
         }catch(Exception ex){System.err.println(ex);}
     }//GEN-LAST:event_saveImageActionPerformed
@@ -185,6 +202,7 @@ public class CameraCapture extends JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton resetBtn;
     private javax.swing.JButton saveImage;
+    private javax.swing.JRadioButton saveToFile;
     // End of variables declaration//GEN-END:variables
     
     // Creates a JFrame of the Class instance
