@@ -58,7 +58,6 @@ public class SignUpForm extends JFrame {
         genderLabel = new javax.swing.JLabel();
         genderCmBox = new javax.swing.JComboBox<>();
         ageLabel = new javax.swing.JLabel();
-        ageTextBox = new javax.swing.JTextField();
         activityLabel = new javax.swing.JLabel();
         activitySelectorJCmBox = new javax.swing.JComboBox<>();
         signUpQuitBtn = new javax.swing.JButton();
@@ -66,6 +65,7 @@ public class SignUpForm extends JFrame {
         pwdMatchHint = new javax.swing.JLabel();
         contactLabel = new javax.swing.JLabel();
         contactField = new javax.swing.JTextField();
+        ageSpinner = new javax.swing.JSpinner();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SIGN UP");
@@ -153,12 +153,6 @@ public class SignUpForm extends JFrame {
         ageLabel.setText("Age");
         ageLabel.setOpaque(true);
 
-        ageTextBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ageTextBoxActionPerformed(evt);
-            }
-        });
-
         activityLabel.setText("Activity");
         activityLabel.setOpaque(true);
 
@@ -194,6 +188,9 @@ public class SignUpForm extends JFrame {
             }
         });
 
+        ageSpinner.setModel(new javax.swing.SpinnerNumberModel(10, 10, 80, 1));
+        ageSpinner.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
         javax.swing.GroupLayout boardPanelLayout = new javax.swing.GroupLayout(boardPanel);
         boardPanel.setLayout(boardPanelLayout);
         boardPanelLayout.setHorizontalGroup(
@@ -220,21 +217,23 @@ public class SignUpForm extends JFrame {
                         .addGap(5, 5, 5)
                         .addGroup(boardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, boardPanelLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(boardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(ageLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(genderLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(usrLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(boardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(ageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(boardPanelLayout.createSequentialGroup()
+                                        .addGap(1, 1, 1)
+                                        .addGroup(boardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(usrLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(genderLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addGap(18, 18, 18)
+                                .addGroup(boardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(usrTypeSelector, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(genderCmBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(genderCmBox, 0, 237, Short.MAX_VALUE)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, boardPanelLayout.createSequentialGroup()
-                                        .addComponent(ageTextBox, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(ageSpinner)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(activityLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(activitySelectorJCmBox, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(activityLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(activitySelectorJCmBox, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(boardPanelLayout.createSequentialGroup()
                                 .addComponent(userEmailText, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -257,17 +256,16 @@ public class SignUpForm extends JFrame {
                         .addGroup(boardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(usrTypeSelector, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(usrLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(10, 10, 10)
                         .addGroup(boardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(genderLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(genderCmBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(boardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(boardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(activityLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(activitySelectorJCmBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(ageTextBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(boardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(activityLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(activitySelectorJCmBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ageSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(photoImageView, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                 .addGroup(boardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -293,7 +291,7 @@ public class SignUpForm extends JFrame {
                 .addGroup(boardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(userPwd1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(userPwdField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addGroup(boardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(userPwd2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(userPwdField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -338,21 +336,21 @@ public class SignUpForm extends JFrame {
             pwdMatchHint.setOpaque(true);
         }else{
             pwdMatchHint.setText("");
-            if(ageTextBox.getText().isEmpty() || contactField.getText().isEmpty()
-                    || ageTextBox.getText().isEmpty() || firstName.getText().isEmpty()
+            if(String.format("%d",ageSpinner.getValue()).isEmpty() || contactField.getText().isEmpty()
+                    || firstName.getText().isEmpty()
                     || secondName.getText().isEmpty() || surName.getText().isEmpty()
                     || Arrays.toString(userPwdField1.getPassword()).isEmpty()
                     || Arrays.toString(userPwdField2.getPassword()).isEmpty()){
                 pwdMatchHint.setText("The required fields cannot be empty!");
             }else{
-                if(!Validate.isNumeric(ageTextBox.getText()) || !userEmailText.getText().matches("\\w+@\\w+.\\w+")){
-                    if(!userEmailText.getText().matches("\\w+@\\w+.\\w+"))
+                if(!Validate.isNumeric(String.format("%d",ageSpinner.getValue()))
+                        || !Validate.isEmail(userEmailText.getText())){
+                    if(!Validate.isEmail(userEmailText.getText()))
                         pwdMatchHint.setText("Email entered is invalid");
                     else pwdMatchHint.setText("Age should be of integer type");
                 }else{
                     submitSignUpForm();
-                }
-                
+                }                
             } 
         }        
     }//GEN-LAST:event_okBtnMouseClicked
@@ -364,17 +362,15 @@ public class SignUpForm extends JFrame {
             pwdMatchHint.setOpaque(true);
         }else{
             pwdMatchHint.setText("");
-            if(ageTextBox.getText().isEmpty() || contactField.getText().isEmpty()
-                    || ageTextBox.getText().isEmpty() || firstName.getText().isEmpty()
+            if(String.format("%d",ageSpinner.getValue()).isEmpty() || contactField.getText().isEmpty()
+                    || firstName.getText().isEmpty()
                     || secondName.getText().isEmpty() || surName.getText().isEmpty()
                     || Arrays.toString(userPwdField1.getPassword()).isEmpty()
                     || Arrays.toString(userPwdField2.getPassword()).isEmpty()){
                 pwdMatchHint.setText("The required fields cannot be empty!");
             }else{
-            if(!Validate.isNumeric(ageTextBox.getText()) || !userEmailText.getText().matches("\\w+@\\w+.\\w+")){
-                    if(!userEmailText.getText().matches("\\w+@\\w+.\\w+"))
-                        pwdMatchHint.setText("Email entered is invalid");
-                    else pwdMatchHint.setText("Age should be of integer type");
+                if(!Validate.isEmail(userEmailText.getText())){
+                    pwdMatchHint.setText("Email entered is invalid");
                 }else{
                     submitSignUpForm();
                 }
@@ -402,10 +398,6 @@ public class SignUpForm extends JFrame {
                   
     }//GEN-LAST:event_signUpQuitBtnActionPerformed
 
-    private void ageTextBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ageTextBoxActionPerformed
-        MainClass.sign.contactField.requestFocus(rootPaneCheckingEnabled);
-    }//GEN-LAST:event_ageTextBoxActionPerformed
-
     private void firstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstNameActionPerformed
         MainClass.sign.secondName.requestFocus(rootPaneCheckingEnabled);
     }//GEN-LAST:event_firstNameActionPerformed
@@ -432,7 +424,7 @@ public class SignUpForm extends JFrame {
     private javax.swing.JLabel activityLabel;
     private javax.swing.JComboBox<String> activitySelectorJCmBox;
     private javax.swing.JLabel ageLabel;
-    private javax.swing.JTextField ageTextBox;
+    private javax.swing.JSpinner ageSpinner;
     private javax.swing.JPanel boardPanel;
     private javax.swing.JTextField contactField;
     private javax.swing.JLabel contactLabel;

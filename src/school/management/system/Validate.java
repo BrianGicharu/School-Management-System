@@ -20,4 +20,9 @@ abstract class Validate {
     public static boolean isDouble(String string){
         return string.matches("\\d+.\\d+");
     }
+    
+    //Checks if a String Object is an email
+    public static Boolean isEmail(String string){
+        return string.matches("\\w+@\\w+.\\w+");
+    }
 }
