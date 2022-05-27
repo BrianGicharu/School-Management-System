@@ -1,4 +1,5 @@
 # School-Management-System
-![](pre_capture.PNG)
-<hr>
-![](post_capture.PNG)
+<p float="left">
+  <img src="/pre_capture.PNG" width=auto />
+  <img src="/post_capture.PNG" width=auto />
+</p><hr>
